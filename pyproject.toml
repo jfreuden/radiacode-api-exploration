@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=62", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radiacode-api-exploration"
+version = "0.1.0"
+description = "Exploration of Radiacode Python API"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Joshua Freudenhammer" },
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pandas",
+    "radiacode"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ipykernel",
+    "ipython",
+    "jupyter",
+    "jupytext",
+    "mypy",
+    "nbconvert",
+    "ruff",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 110
+
+[tool.isort]
+profile = "black"
+line_length = 110
